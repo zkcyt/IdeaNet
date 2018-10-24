@@ -1,0 +1,25 @@
+<h1>"<%= @user.nickname %>"</h1>
+
+<table>
+  <tr>
+    <th>Nickname</th>
+    <td><%= @user.nickname %></td>
+  </tr>
+  <tr>
+    <th>ID</t>
+    <td><%= @user.id %></td>
+  </tr>
+  <tr>
+    <th>Created at</th>
+    <td><%= @user.created_at %></td>
+  </tr>
+  <tr>
+    <th>Memo</th>
+    <td><%= @user.memo %></td>
+  </tr>
+</table>
+
+<hr>
+<%= link_to '<< Back', controller: :posts %>
+<hr>
+<div>copyright Tree 2018</div>
