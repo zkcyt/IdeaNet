@@ -19,8 +19,10 @@
         <td><%= post.title %></td>
         <td><%= post.summary %></td>
         <td><%= post.content %></td>
+        <td><%#= hidden_field :post.user_id %></td>
         <td><%#= hidden_field :post.user_id, {value: post.user_id} %></td>
         <td><%= post.user_id %></td>
+        <td><%#= post.user_detail.nickname %></td>
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
