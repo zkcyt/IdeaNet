@@ -27,8 +27,10 @@
   </div>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id, id: :post_user_id %>
+    <%= form.label :nickname %>
+    <%= form.text_area :user_nickname, id: :user_nickname %>
+    <%#= form.label :user_id %>
+    <%#= form.number_field :user_id, id: :post_user_id %>
   </div>
 
   <div class="actions">

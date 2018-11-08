@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
-  #before_action :set_user, only: [:show, :edit, :update, :destroy]
-  #before_action :authenticate_user!
-
-    def show
-     @user = User.find(params[:id])
-     @posts = @user.posts
+  def show
+    if params[:format].present?
+      @user = User.find(params[:format])
+    else
+      @user = User.find(params[:id])
+    end
+    @posts = @user.posts
   end
-
 end
