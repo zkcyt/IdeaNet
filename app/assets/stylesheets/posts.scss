@@ -4,6 +4,7 @@
 
 #mainNav {
   background-color: #212529;
+  //background-color: red;
 }
 
 #mainNav .navbar-toggler {
@@ -60,7 +61,20 @@
   }
   #mainNav .navbar-nav .nav-item .nav-link {
     padding: 1.1em 1em !important;
+    //display: inline-block;
   }
+
+//私が追加
+  #Nav {
+    list-style: none;
+  }
+
+  #mainNav .navbar-nav .nav-item .nav-link {
+    display: inline-block;
+    text-decoration: none;
+  }
+  //私が追加　ここまで
+
   #mainNav.navbar-shrink {
     padding-top: 0;
     padding-bottom: 0;

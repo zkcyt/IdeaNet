@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
-  #before_action :correct_user, only: [:edit, :update]
+  before_action :correct_user, only: [:edit, :update]
   #GET /posts
   # GET /posts.json
   def index
@@ -18,6 +18,7 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
+    #@post = @post.user
     #redirect_to '/posts'
   end
 
