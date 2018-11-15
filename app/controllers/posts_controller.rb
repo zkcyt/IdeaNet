@@ -13,6 +13,7 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     #redirect_to '/posts'
+    #@post.user_id = @user.user_id
   end
 
   # GET /posts/new

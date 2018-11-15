@@ -21,7 +21,7 @@
         <td><%= post.content %></td>
         <td><%#= hidden_field :post.user_id %></td>
         <td><%#= hidden_field :post.user_id, {value: post.user_id} %></td>
-        <td><%#= link_to post.user.nickname, controller: :user_details, action: :show %></td>
+        <td><%#= link_to post.user.nickname, controller: :users, action: :show %></td>
         <td><%= post.user.nickname %></td>
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>

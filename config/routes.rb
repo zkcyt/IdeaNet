@@ -5,12 +5,12 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :posts
-  
+
 
   # deviseではshowのルーティングがなかったので追加
   resources :users, only: [:show]
   # Twitterログインに必要
-  get 'users/show'
+  get "users/:id", to: "users#show"
 
   root to: "posts#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
