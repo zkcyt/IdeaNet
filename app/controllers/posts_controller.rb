@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
-  before_action :correct_user, only: [:edit, :update]
+  #before_action :correct_user, only: [:edit, :update]
   #GET /posts
   # GET /posts.json
   def index
@@ -12,8 +12,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    #redirect_to '/posts'
-    #@post.user_id = @user.user_id
+    @user = User.find_by(id: @post.user_id)
   end
 
   # GET /posts/new
@@ -65,6 +64,7 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
+    #redirect_to("/posts")
   end
 
   private

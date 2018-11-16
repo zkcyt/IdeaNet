@@ -17,7 +17,8 @@
 
 <p>
   <strong>Nickname:</strong>
-  <%= @post.user.nickname %>
+  <%#= link_to @post.user.nickname, controller::users, action::show %>
+  <%= link_to @post.user.nickname, user_path(current_user.id) %>
 </p>
 
 <p>
@@ -25,5 +26,6 @@
   <%= @post.user_id %>
 </p>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Edit', edit_post_path(@post) %>
+<%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
 <%= link_to 'Back', posts_path %>
