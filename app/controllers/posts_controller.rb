@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
-  #before_action :correct_user, only: [:edit, :update]
+  before_action :correct_user, only: [:edit, :update]
   #GET /posts
   # GET /posts.json
   def index
@@ -60,6 +60,8 @@ class PostsController < ApplicationController
   def destroy
     #redirect_to '/board_messages'
     @post.destroy
+    #redirect_to posts_path
+    @post.user_id = current_user.id
     respond_to do |format|
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
