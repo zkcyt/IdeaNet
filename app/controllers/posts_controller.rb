@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
-  before_action :correct_user, only: [:edit, :update]
+  before_action :correct_user, only: [:edit, :update, :destroy]
   #GET /posts
   # GET /posts.json
   def index
@@ -61,7 +61,7 @@ class PostsController < ApplicationController
     #redirect_to '/board_messages'
     @post.destroy
     #redirect_to posts_path
-    @post.user_id = current_user.id
+    #@post.user_id = current_user.id
     respond_to do |format|
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
@@ -81,8 +81,11 @@ class PostsController < ApplicationController
     end
 
     def correct_user
-      @user = User.find(Post.find(params[:id]).user_id)
-      @current_user = current_user
-      redirect_to posts_path, notice: '他のユーザーの投稿は編集できません。'
+      #@post = Post.find_by(id: params[:id])
+      if current_user.id != @post.user_id
+      #@user = User.find(Post.find(params[:id]).user_id)
+      #@current_user = current_user
+        redirect_to posts_path, notice: '他のユーザーの投稿は編集できません。'
+      end
     end
 end
