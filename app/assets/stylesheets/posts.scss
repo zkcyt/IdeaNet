@@ -2,86 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#mainNav {
-  background-color: #212529;
-  //background-color: red;
+
+#g_navi ul {
+ overflow: hidden;
+ margin: 0 auto;
+ padding: 0 3%;
+ width: 94%;
+ max-width: 960px;
 }
 
-#mainNav .navbar-toggler {
-  font-size: 12px;
-  right: 0;
-  padding: 13px;
-  text-transform: uppercase;
-  color: #fed136;
-  // border: 0;
-  border:1px solid #fed136;
-  // background-color: #fed136;
-  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
+ #g_navi ul li {
+  position: relative;
+  float: left;
+  width: 20%;   
+ }
 
-#mainNav .navbar-brand {
-  color: #fed136;
-  font-family: 'Kaushan Script', 'Helvetica Neue', Helvetica, Arial, cursive;
-  padding: .7rem
-}
-
-#mainNav .navbar-brand.active, #mainNav .navbar-brand:active, #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
-  color: #fec503;
-}
-
-#mainNav .navbar-nav .nav-item .nav-link {
-  font-size: 90%;
-  font-weight: 400;
-  padding: 0.75em 0;
-  letter-spacing: 1px;
-  color: white;
-  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-#mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {
-  color: #fed136;
-}
-
-@media (min-width: 992px) {
-  // 画面サイズが広い時にnavbarの背景が消えて太さが太くなる挙動をここをコメントアウトして制御
-  // #mainNav {
-  //   padding-top: 25px;
-  //   padding-bottom: 25px;
-  //   -webkit-transition: padding-top 0.3s, padding-bottom 0.3s;
-  //   -moz-transition: padding-top 0.3s, padding-bottom 0.3s;
-  //   transition: padding-top 0.3s, padding-bottom 0.3s;
-  //   border: none;
-  //   background-color: transparent;
-  // }
-  #mainNav .navbar-brand {
-    font-size: 1.75em;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    transition: all 0.3s;
+  #g_navi ul li .nav-item {
+    display: block;
+   padding: 17px 5%;
+   width: 90%;
+   color: #fff;
+   text-align: center;
+   text-decoration: none;
   }
-  #mainNav .navbar-nav .nav-item .nav-link {
-    padding: 1.1em 1em !important;
-    //display: inline-block;
-  }
-
-//私が追加
-  //#Nav {
-    //list-style: none;
-  //}
-
-  //#mainNav .navbar-nav .nav-item .nav-link {
-    //display: inline-block;
-    //text-decoration: none;
-  //}
-  //私が追加　ここまで
-
-  #mainNav.navbar-shrink {
-    padding-top: 0;
-    padding-bottom: 0;
-    background-color: #212529;
-  }
-  #mainNav.navbar-shrink .navbar-brand {
-    font-size: 1.25em;
-    padding: 12px 0;
-  }
-}
