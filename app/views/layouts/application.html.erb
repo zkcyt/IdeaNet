@@ -6,30 +6,36 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="row">
+      <div class="col-md-2">
+        <script>
+          div { border:3px; border-style:solid dotted dashed; background-color:#ffdff9;}
+        </script>
+        <%#<ul class="nav nav-pills nav-stacked">%>
+        <nav id="g_navi">
+          <ul>   <li class="nav-item">
+                    <%= link_to "投稿を見る", posts_path, class:"nav-link" %>
+                </li>
+          <% if user_signed_in? %>
+              <li class="nav-item"><%= link_to "投稿する", new_post_path, class:"nav-link" %></li>
+              <li class="nav-item"><%= link_to "マイページ", user_path(current_user.id), class:"nav-link" %></li>
+              <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete , class:"nav-link" %></li>
+           <% else %>
+               <li class="nav-item"><%= link_to "無料会員登録", new_user_registration_path , class:"nav-link" %></li>
+                <li class="nav-item"><%= link_to "ログイン", new_user_session_path , class:"nav-link" %></li>
+            <% end %>
+         </ul>
+        </nav>
+      </div>
 
-    <nav id="g_navi">
-      <ul>   <li class="nav-item">
-                <%= link_to "投稿を見る", posts_path, class:"nav-link" %>
-            </li>
-      <% if user_signed_in? %>
-          <li class="nav-item"><%= link_to "投稿する", new_post_path, class:"nav-link" %></li>
-          <li class="nav-item"><%= link_to "マイページ", user_path(current_user.id), class:"nav-link" %></li>
-          <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete , class:"nav-link" %></li>
-       <% else %>
-           <li class="nav-item"><%= link_to "無料会員登録", new_user_registration_path , class:"nav-link" %></li>
-            <li class="nav-item"><%= link_to "ログイン", new_user_session_path , class:"nav-link" %></li>
-        <% end %>
-     </ul>
-    </nav>
-
-    <%= yield %>
-
+      <div class="col-md-10">
+       <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+       <%= yield %>
+      </div>
+    </div>
   </body>
 </html>

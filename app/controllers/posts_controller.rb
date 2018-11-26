@@ -5,8 +5,10 @@ class PostsController < ApplicationController
   #GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
-
+    #@posts = Post.all
+    @q = Post.ransack(params[:q])
+    #@posts = @q.result.page(params[:page]).per(10).recent
+    @posts = @q.result.page(params[:page]).per(10)
   end
 
   # GET /posts/1
@@ -84,7 +86,6 @@ class PostsController < ApplicationController
       #@post = Post.find_by(id: params[:id])
       if current_user.id != @post.user_id
       #@user = User.find(Post.find(params[:id]).user_id)
-      #@current_user = current_user
         redirect_to posts_path, notice: '他のユーザーの投稿は編集できません。'
       end
     end
