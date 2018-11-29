@@ -15,6 +15,16 @@
   <%= @post.content %>
 </p>
 
+<% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
+　<%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
+    　<span class="fa fa-heart like-btn-unlike"></span>
+    <% end %>
+ <% else %>
+ 　<%= link_to("/likes/#{@post.id}/create", {method: "post"}) do %>
+       <span class="fa fa-heart like-btn"></span>
+     <% end %>
+ <% end %>
+ 
 <p>
   <strong>Nickname:</strong>
   <%#= link_to @post.user.nickname, controller::users, action::show %>
