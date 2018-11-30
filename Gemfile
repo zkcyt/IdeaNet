@@ -54,3 +54,5 @@ gem 'devise'
 gem 'kaminari'
 
 gem 'ransack'
+
+gem 'jquery-rails' 

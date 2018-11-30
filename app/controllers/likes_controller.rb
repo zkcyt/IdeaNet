@@ -5,8 +5,8 @@ class LikesController < ApplicationController
   def create
     @like = current_user.likes.create(post_id: params[:post_id])
     likes_count
-    #render :index
-    redirect_to("/posts/#{params[:post_id]}")
+    render :index
+    #redirect_to("/posts/#{params[:post_id]}")
   end
 
   def destroy
@@ -14,8 +14,8 @@ class LikesController < ApplicationController
     @like.destroy
     @like = nil
     likes_count
-    #render :index
-    redirect_to("/posts/#{params[:post_id]}")
+    render :index
+    #redirect_to("/posts/#{params[:post_id]}")
   end
 
   private
