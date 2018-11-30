@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   def show
     @user = User.find_by(id: @post.user_id)
     @like = current_user.likes.find_by(post_id: @post.id) if user_signed_in?
-    #@likes_count = Like.where(post_id: @post.id).count
+    @likes_count = Like.where(post_id: @post.id).count
   end
 
   # GET /posts/new
