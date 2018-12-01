@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Title</th>
+      <th>いいね</th>
       <th>Summary</th>
       <th>Content</th>
       <th>UserNickname</th>
@@ -17,11 +18,11 @@
     <% @posts.each do |post| %>
       <tr>
         <td><%= post.title %></td>
+
+        <td><span class="fa fa-heart like-btn"><%= post.likes.count %></span>件</td>
         <td><%= post.summary %></td>
         <td><%= post.content %></td>
-        <td><%#= hidden_field :post.user_id %></td>
         <td><%#= hidden_field :post.user_id, {value: post.user_id} %></td>
-        <td><%#= link_to post.user.nickname, controller: :users, action: :show %></td>
         <td><%= post.user.nickname %></td>
         <td><%= link_to 'Show', post %></td>
         <td><%#= link_to 'Edit', edit_post_path(post) %></td>
