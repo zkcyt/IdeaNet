@@ -38,3 +38,30 @@
 
 <!-- ページング機能 -->
        <%= paginate @posts %>
+
+<!-- サイドバー -->
+    <div id="side" class="col-sm-12 col-md-4">
+      <!-- いいねが多い投稿一覧機能 -->
+      <div class="rank-box">
+        <%#<span class="rank-box-title"><i class="fa fa-check fa-fw"></i>いいね！ランキング</span>%>
+        <span class="rank-box-title">いいね！ランキング</span>
+        <div class="not-under">
+          <% @like_ranking.each.with_index(1) do |post, i| %>
+            <%= link_to post do %>
+              <div class ="rank">
+                <table class="table table-sm">
+                  <tbody>
+                    <tr>
+                      <td class="border-top-0"><%= i %>位　「<%= post.title %>」</td>
+                    </tr>
+                    </tbody>
+                </table>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+        <%#= link_to 'もっと見る', posts_like_ranking_path, style: "text-decoration: underline" %>
+        <%= link_to 'もっと見る', posts_like_ranking_path %>
+
+      </div>
+      <!-- いいねが多い投稿一覧機能ここまで -->

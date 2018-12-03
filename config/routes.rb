@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'posts/like_ranking'
+
   devise_for :users
 
   #devise_for :users do

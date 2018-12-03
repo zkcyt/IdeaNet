@@ -9,10 +9,13 @@ class PostsController < ApplicationController
     @q = Post.ransack(params[:q])
     #@posts = @q.result.page(params[:page]).per(10).recent
     @posts = @q.result.page(params[:page]).per(10)
+    @like_ranking = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
   end
 
-  # GET /posts/1
-  # GET /posts/1.json
+  def like_ranking
+    @posts = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(50).pluck(:post_id))
+  end
+
   def show
     @user = User.find_by(id: @post.user_id)
     @like = current_user.likes.find_by(post_id: @post.id) if user_signed_in?

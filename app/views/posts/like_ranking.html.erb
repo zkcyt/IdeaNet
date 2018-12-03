@@ -1,0 +1,30 @@
+<div class="container">
+  <br>
+  <h2>いいね！ランキング</h2>
+
+  <%#= render partial: "article", locals: {posts: @posts}  %>
+
+  <div class="not-under">
+  <% @posts.each do |post| %>
+    <%= link_to post do %>
+      <div class ="card switch">
+        <div class ="card-body post-index-body">
+          <table class="table table-responsive table-sm post-index">
+            <tbody>
+              <tr>
+                <td class="border-top-0">「<%= post.title %>」</td>
+              </tr>
+            </tbody>
+          </table>
+          <small>いいね！ <%= post.likes.count %>件 </small>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+  <div>
+    <%= link_to '投稿一覧へ', posts_path %>
+      <%#<i class="fa fa-arrow-circle-left fa-fw"></i> 投稿一覧へ%>
+  </div>
+</div>
