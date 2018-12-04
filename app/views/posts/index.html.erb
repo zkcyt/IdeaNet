@@ -1,6 +1,9 @@
-<p id="notice"><%= notice %></p>
+<%#<p id="notice"><%= notice %></p>
 
 <h1>Posts</h1>
+
+<div class="container">
+  <main class="main">
 
 <table>
   <thead>
@@ -18,7 +21,6 @@
     <% @posts.each do |post| %>
       <tr>
         <td><%= post.title %></td>
-
         <td><span class="fa fa-heart like-btn"><%= post.likes.count %></span>件</td>
         <td><%= post.summary %></td>
         <td><%= post.content %></td>
@@ -38,9 +40,14 @@
 
 <!-- ページング機能 -->
        <%= paginate @posts %>
+</main>
+
+
 
 <!-- サイドバー -->
-    <div id="side" class="col-sm-12 col-md-4">
+<div class="sidebar">
+  <div class="sidebar__item sidebar__item--fixed">
+    <%#<div id="side" class="col-sm-12 col-md-4">%>
       <!-- いいねが多い投稿一覧機能 -->
       <div class="rank-box">
         <%#<span class="rank-box-title"><i class="fa fa-check fa-fw"></i>いいね！ランキング</span>%>
@@ -64,4 +71,7 @@
         <%= link_to 'もっと見る', posts_like_ranking_path %>
 
       </div>
+
       <!-- いいねが多い投稿一覧機能ここまで -->
+    </div>
+</div>

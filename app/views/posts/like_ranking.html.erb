@@ -12,11 +12,15 @@
           <table class="table table-responsive table-sm post-index">
             <tbody>
               <tr>
-                <td class="border-top-0">「<%= post.title %>」</td>
+                <td class="border-top-0">「<%= post.title %>」　<small>いいね！ <%= post.likes.count %>件 </small></td>
+              </tr>
+              <tr>
+
               </tr>
             </tbody>
           </table>
-          <small>いいね！ <%= post.likes.count %>件 </small>
+
+
         </div>
       </div>
     <% end %>
