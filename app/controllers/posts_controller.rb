@@ -8,7 +8,7 @@ class PostsController < ApplicationController
     #@posts = Post.all
     @q = Post.ransack(params[:q])
     #@posts = @q.result.page(params[:page]).per(10).recent
-    @posts = @q.result.page(params[:page]).per(10)
+    @posts = @q.result.page(params[:page]).per(10).recent
     @like_ranking = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
   end
 

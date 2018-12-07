@@ -18,7 +18,7 @@
  }
 
   #g_navi ul li .nav-item {
-    display: block;
+   display: block;
    padding: 17px 5%;
    width: 90%;
    color: #fff;
@@ -40,13 +40,13 @@
 .main {
   display: block;
   //width: 660px;
-  width: 50%;
+  width: 70%;
   margin-right: 20px;
 }
 
 .sidebar {
   //width: 320px;
-  width: 30%;
+  width: 20%;
 }
 
 //.sidebar__item {
@@ -58,4 +58,8 @@
   margin-bottom: 0;
   top: 10px;
   z-index: 1;
+}
+
+.not-under:hover {
+  color: red;
 }
