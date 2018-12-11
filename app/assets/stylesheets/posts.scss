@@ -1,7 +1,11 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+//.multicolumnbox {
+   //-moz-column-count: 2;
+   //-webkit-column-count: 2;
+   //column-count: 2;
+//}
 
 #g_navi ul {
  overflow: hidden;
@@ -44,7 +48,7 @@
   margin-right: 20px;
 }
 
-.sidebar {
+.side {
   //width: 320px;
   width: 20%;
 }
@@ -53,7 +57,7 @@
   //margin-bottom: 20px;
 //}
 
-.sidebar__item--fixed {
+.side__item--fixed {
   position: sticky;
   margin-bottom: 0;
   top: 10px;

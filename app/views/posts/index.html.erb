@@ -1,14 +1,21 @@
 <%#<p id="notice"><%= notice %></p>
+<div class="body-full">
 
-<div class="container">
-  <main class="main">
+  <div class="container-fluid index-body">
+    <div class="row">
+      <div id="main" class="col-sm-12 col-md-8">
+       <div class="main-body">
 
 <h1>Posts</h1>
 
-<table width="65%">
+<%#<div class="multicolumnbox">
+<p>%>
+<div class="table-responsive">
+  <table class="table table-bordered" width="65%">
+　　<table class="table table-condensed">
+
   <thead>
     <tr>
-      <%#<th colspan="">Title</th>%>
       <th width="10%">Title</th>
       <th width="5%">いいね</th>
       <th width="20%">Summary</th>
@@ -34,20 +41,21 @@
     <% end %>
   </tbody>
 </table>
+</div>
 
 <br>
 
 <%= link_to 'New Post', new_post_path %>
-
+<%#</p>%>
 <!-- ページング機能 -->
        <%= paginate @posts %>
-</main>
 
 
 
+<%#<p>%>
 <!-- サイドバー -->
-<div class="sidebar" width="10%">
-  <div class="sidebar__item sidebar__item--fixed">
+<div id="side" class="col-sm-12 col-md-4">
+  <div class="side__item sidebar__item--fixed">
     <%#<div id="side" class="col-sm-12 col-md-4">%>
       <!-- いいねが多い投稿一覧機能 -->
       <div class="rank-box">
@@ -72,7 +80,12 @@
         <%= link_to 'もっと見る', posts_like_ranking_path, style: "text-decoration: underline" %>
 
       </div>
-
       <!-- いいねが多い投稿一覧機能ここまで -->
     </div>
+  </div>
+<%#</p>%>
+
+      </div>
+    </div>
+  </div>
 </div>
