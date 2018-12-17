@@ -1,7 +1,5 @@
 <%#<p id="notice"><%= notice %></p>
-
 <div class="body-full">
-
 
   <div class="container-fluid index-body">
     <div class="row">
@@ -14,6 +12,7 @@
   <div class="table-responsive">
   <table class="table table-bordered" width="65%">
 　　<table class="table table-condensed">
+
   <thead>
     <tr>
       <th width="10%">Title</th>
@@ -37,15 +36,17 @@
     <% end %>
   </tbody>
 </table>
+</div>
 
 <%#<br>%>
 <!-- ページング機能 -->
        <%= paginate @posts %>
  <%#</main>%>
+<br>
 
- <%= link_to 'New Post', new_post_path %>
-</div>
+<%= link_to 'New Post', new_post_path %>
 
+<%#<p>%>
 <!-- サイドバー -->
 <div id="side" class="col-sm-12 col-md-4">
   <%#<div class="side__item sidebar__item--fixed">%>
@@ -70,11 +71,12 @@
           <% end %>
         </div>
         <%= link_to 'もっと見る', posts_like_ranking_path, style: "text-decoration: underline" %>
-  </div>
+     </div>
        <!-- いいねが多い投稿一覧機能ここまで -->
+  </div>
 
      </div>
     </div>
    </div>
- </div>
+  </div>
 </div>
