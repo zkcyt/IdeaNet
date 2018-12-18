@@ -35,34 +35,35 @@
   }
 
   .container {
-  //width: 1000px;
-  //width: 95%;
+  width: 1000px;
+  width: 95%;
   display: -webkit-flex;
   display: flex;
 }
 
 .main {
   display: block;
-  //width: 660px;
+  width: 660px;
   width: 70%;
   margin-right: 20px;
 }
+
 .side {
-  //width: 320px;
-  //width: 20%;
+  width: 320px;
+  width: 20%;
 }
 
 //.sidebar__item {
   //margin-bottom: 20px;
 //}
 
-.side__item--fixed {
-  position: sticky;
-  margin-bottom: 0;
-  top: 10px;
-  z-index: 1;
-}
+//.side__item--fixed {
+  //position: sticky;
+  //margin-bottom: 0;
+  //top: 10px;
+  //z-index: 1;
+//}
 
-.not-under:hover {
-  color: red;
-}
+//.not-under:hover {
+  //color: red;
+//}
