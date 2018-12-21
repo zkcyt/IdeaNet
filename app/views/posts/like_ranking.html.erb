@@ -12,10 +12,10 @@
           <table class="table table-responsive table-sm post-index">
             <tbody>
               <tr>
-                <td class="border-top-0">「<%= post.title %>」　<small>いいね！ <%= post.likes.count %>件 </small></td>
+                <td class="border-top-0">「<%= post.title %>」　<span class="fa fa-heart like-btn"></span><small>いいね！ <%= post.likes.count %>件 </small></td>
               </tr>
               <tr>
-
+                <td class="border-top-0"> (<%= post.summary %>)</td>
               </tr>
             </tbody>
           </table>

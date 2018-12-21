@@ -30,11 +30,11 @@
    text-decoration: none;
   }
 
-  .like-btn {
+.like-btn {
     color: #8899a6;
   }
 
-  .container {
+.container {
   width: 1000px;
   width: 95%;
   display: -webkit-flex;
@@ -51,6 +51,35 @@
 .side {
   width: 320px;
   width: 20%;
+}
+
+.rank{
+  padding: 0.5em 1em;
+  margin: 1em 0;
+  color: #232323;
+  background: white;
+  border-left: solid 10px #FECA30;
+}
+
+.rank:hover{
+  opacity: .7;
+}
+
+.rank-box {
+  position: relative;
+  margin: 2em 0;
+  padding: 0.5em 1em;
+  border-radius: 8px;
+}
+.rank-box .rank-box-title {
+  position: absolute;
+  display: inline-block;
+  top: -7px;
+  left: 10px;
+  padding: 0 9px;
+  line-height: 1;
+  font-size: 15px;
+  color: #1F2125;
 }
 
 //.sidebar__item {
