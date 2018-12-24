@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'genres/index'
+  get 'genres', to: 'genres#index'
+  get 'genres/add'
+  
+  post 'genres/add'
+  get 'genres/:id', to: 'genres#edit'
+  patch 'genres/:id', to: 'genres#edit'
+  post 'genres/delete', to: 'genres#delete'
+  post 'genres/delete/:id', to: 'genres#delete'
+
   get 'posts/like_ranking'
 
   devise_for :users

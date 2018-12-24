@@ -10,6 +10,7 @@ class PostsController < ApplicationController
     #@posts = @q.result.page(params[:page]).per(10).recent
     @posts = @q.result.page(params[:page]).per(10).recent
     @like_ranking = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
+    @genres = Genre.all
   end
 
   def like_ranking
@@ -20,17 +21,20 @@ class PostsController < ApplicationController
     @user = User.find_by(id: @post.user_id)
     @like = current_user.likes.find_by(post_id: @post.id) if user_signed_in?
     @likes_count = Like.where(post_id: @post.id).count
+    @genres = Genre.all
   end
 
   # GET /posts/new
   def new
     @post = Post.new
+    @genres = Genre.all
     #@post = @post.user
     #redirect_to '/posts'
   end
 
   # GET /posts/1/edit
   def edit
+    @genres = Genre.all
     #redirect_to '/posts'
   end
 
@@ -39,6 +43,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
+    @genres = Genre.all
     if @post.save
       #make_picture
       redirect_to @post, notice: '投稿しました。投稿ありがとうございます。'
@@ -51,6 +56,7 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1.json
   def update
     #redirect_to '/board_messages'
+    @genres = Genre.all
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
@@ -60,6 +66,7 @@ class PostsController < ApplicationController
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # DELETE /posts/1
@@ -84,7 +91,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :summary, :content, :user_id)
+      params.require(:post).permit(:title, :summary, :content, :user_id, :genre_id)
     end
 
     def correct_user

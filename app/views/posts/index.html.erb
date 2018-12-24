@@ -8,7 +8,7 @@
   <%#<div class="main-body">%>
 
 <%#<table width="75%">%>
-<table class="table-responsive">
+<table class="table-responsive" width="75%">
   <%#<table class="table table-bordered" width="65%">%>
 　<%#<table class="table table-condensed">%>
 
@@ -19,13 +19,9 @@
       <th>Summary</th>
       <th>Content</th>
       <th>User</th>
-      <th colspan="5"></th>%>
-      <%#<th width="10%">Title</th>
-      <th width="5%">いいね</th>
-      <th width="20%">Summary</th>
-      <th width="20%">Content</th>
-      <th width="5%">User</th>
-      <th colspan="5"></th>%>
+      <th>Genre</th>
+      <th colspan="6"></th>%>
+      <%#<th width="10%">Title</th>%>
     </tr>
   </thead>
 
@@ -37,19 +33,19 @@
         <td><%= post.summary %></td>
         <td><%= post.content %>          <%= link_to 'もっと見る', post %></td>
         <td><%= post.user.nickname %></td>
+        <td><%= post.genre_id %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-
-<%#<br>%>
+<br>
 <!-- ページング機能 -->
        <%= paginate @posts %>
  <%#</main>%>
 <br>
 
-<%= link_to 'New Post', new_post_path %>
+<%= link_to '投稿する', new_post_path %>
 </div>
 
 <%#<p>%>
