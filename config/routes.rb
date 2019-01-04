@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   post 'genres/add'
   #get 'genres/:id', to: 'genres#show'
 
-  get 'genres/:id', to: 'genres#edit'
-  patch 'genres/:id', to: 'genres#edit'
+  get 'genres/:id/edit', to: 'genres#edit'
+  patch 'genres/:id/edit', to: 'genres#edit'
   get 'genres/:id', to: 'genres#delete'
   post 'genres/delete/:id', to: 'genres#delete'
 
