@@ -4,11 +4,11 @@ class GenresController < ApplicationController
   end
 
 
-  #def show
-    #@genre = Genre.find params[:id]
-    #@post = Post.where('genre_id = ?', params[:id]).order('created_at desc')
+  def show
+    @genre = Genre.find params[:id]
+    @post = Post.where('genre_id = ?', params[:id]).order('created_at desc')
     #redirect_to '/genres/:id'
-  #end
+  end
 
   def add
     @genre = Genre.new
@@ -27,13 +27,13 @@ class GenresController < ApplicationController
     end
   end
 
-  #def destroy
-    #@post.destroy
-    #respond_to do |format|
-      #format.html { redirect_to genres_url, notice: 'Genre was successfully destroyed.' }
-      #format.json { head :no_content }
-    #end
-  #end
+  def destroy
+    @genre.destroy
+    respond_to do |format|
+      format.html { redirect_to genres_url, notice: 'Genre was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
 
   private
   def genre_params

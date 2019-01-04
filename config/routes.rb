@@ -4,12 +4,12 @@ Rails.application.routes.draw do
   get 'genres', to: 'genres#index'
   get 'genres/add'
   post 'genres/add'
-  #get 'genres/:id', to: 'genres#show'
+  get 'genres/:id', to: 'genres#show'
 
   get 'genres/:id/edit', to: 'genres#edit'
   patch 'genres/:id/edit', to: 'genres#edit'
-  get 'genres/:id', to: 'genres#delete'
-  post 'genres/delete/:id', to: 'genres#delete'
+  get 'genres/:id/delete', to: 'genres#delete'
+  post 'genres/:id/delete', to: 'genres#delete'
 
   get 'posts/like_ranking'
 

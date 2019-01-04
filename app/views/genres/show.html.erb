@@ -1,0 +1,16 @@
+<!-- ジャンル別投稿一覧-->
+<h1>「<%= @genre.name %>」の投稿</h1>
+
+<% unless @posts.present? %>
+  <p><%= @genre.name %>の投稿はまだありません。</p>
+<%# end %>
+
+<% else %>
+<%# if @posts.present? %>
+    <% @posts.each do |post| %>
+        <h3 class="top_title">
+          <a href="/posts/<%= genre.id %>"><%= post.title %></a></h3>
+          <p class="top_read"><%= post.summary %>
+            <span class="top_created">(<%= post.created_at %>)</span></p>
+    <% end %>
+<% end %>
