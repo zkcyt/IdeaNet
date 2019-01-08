@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   has_many :like_users, through: :likes, source: :user
   belongs_to :genre
 
-  validates :title, :summary, :content, presence: {message:'は、必須項目です。'}
+  validates :title, :summary, :content, :genre_id, presence: {message:'は、必須項目です。'}
 
   scope :recent, -> (count = 10){ order('created_at desc').limit(count) }
 end

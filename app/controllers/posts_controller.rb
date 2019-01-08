@@ -5,10 +5,11 @@ class PostsController < ApplicationController
   #GET /posts
   # GET /posts.json
   def index
-    #@posts = Post.all
+    @posts = Post.all
     @q = Post.ransack(params[:q])
-    #@posts = @q.result.page(params[:page]).per(10).recent
     @posts = @q.result.page(params[:page]).per(10).recent
+    #@posts = Post.all
+    #@posts = Post.where(id: params[:genre_id]).order(created_at: :desc)
     @like_ranking = Post.where(id: Like.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
     @genres = Genre.all
 
@@ -18,11 +19,19 @@ class PostsController < ApplicationController
     @posts = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(50).pluck(:post_id))
   end
 
+  def genre
+    @genre = Genre.find params[:id]
+    @post = Post.where('genre_id = ?', params[:id]).order('created_at desc')
+    #redirect_to '/genres/:id'
+  end
+
   def show
     @user = User.find_by(id: @post.user_id)
     @like = current_user.likes.find_by(post_id: @post.id) if user_signed_in?
     @likes_count = Like.where(post_id: @post.id).count
     @genres = Genre.all
+    @posts = Post.where(id: params[:genre_id]).order(created_at: :desc)
+    #@genres = @posts.genre
   end
 
   # GET /posts/new

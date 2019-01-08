@@ -6,7 +6,8 @@ class GenresController < ApplicationController
 
   def show
     @genre = Genre.find params[:id]
-    @post = Post.where('genre_id = ?', params[:id]).order('created_at desc')
+    @posts = Post.where(id: params[:genre_id]).order(created_at: :desc)
+    #@post = Post.where('genre_id = ?', params[:id]).order('created_at desc')
     #redirect_to '/genres/:id'
   end
 
@@ -37,6 +38,6 @@ class GenresController < ApplicationController
 
   private
   def genre_params
-    params.require(:genre).permit(:name, :memo)
+    params.require(:genre).permit(:name, :memo, :post_id)
   end
 end

@@ -22,7 +22,8 @@
 
 <p>
   <strong>Genre:</strong>
-  <%= @post.genre_id %>
+  <%#= @post.genre_id %>
+  <%= @post.genre.try(:name) %>
 </p>
 
 <p>

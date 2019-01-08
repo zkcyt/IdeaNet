@@ -12,7 +12,9 @@
       <%#= link_to @post.user.nickname, user_path(@user.id) %>
       <td><%= genre.id %></td>
       <td><%#= link_to genre.name, genres_path(genre.id) %></td>
-      <td><%= link_to(genre.name, "/genres/#{genre.id}") %></td>
+      <td><%#= link_to(genre.name, "/genres/#{genre.id}", {:action=>"index", :controller=>"posts"}, id: genre.id) %></td>
+      <td><%= link_to(genre.name, "/genres/#{genre.id}", controller: "posts", action: "show", id: genre.id) %></td>
+      <td><%#= link_to genre.name, "/genres/#{genre.id}", posts_path(genre_id) %></td>
       <td><%= genre.memo %></td>
       <td><%= link_to("Edit", "/genres/#{genre.id}/edit") %></td>
     </tr>
