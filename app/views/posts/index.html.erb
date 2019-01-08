@@ -10,13 +10,16 @@
 
           <div class="card-body">
             <span class="box-title"><i class="fa fa-search fa-fw"></i>検索</span>
-            <%= search_form_for(@q, method: :get) do |f| %>
+            <%#= search_form_for(@q, method: :get) do |f| %>
             <%#= search_form_for @q ,url: {controller: "posts", action: "index"} do |f| %>
+            <%= search_form_for @q do |f| %>
             <div class="row">
               <div class="col-6 col-md-3">
                 <div class="form-group">
-                  <%= f.label :genre_id_eq, '分野' %>
-                  <%= f.select :genre_id_eq, [["観光","観光"],["生活","生活"],["不便","不便"],["言語","言語"],["",""],["",""],["",""],["",""]], {include_blank: true}, {class: 'form-control'} %>
+                  <%#= f.label :genre_id_eq, '分野' %>
+                  <%= f.label :genre_id, '分野' %>
+                  <%#= f.select :genre_id_eq, [["観光","観光"],["生活","生活"],["不便","不便"],["言語","言語"],["",""],["",""],["",""],["",""]], {include_blank: true}, {class: 'form-control'} %>
+                  <%= f.select :genre_id_eq, Genre.all.map{|genre| [genre.name, genre.id]} %>
                 </div>
               </div>
               <div class="search-button">
