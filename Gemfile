@@ -58,3 +58,5 @@ gem 'kaminari'
 gem 'ransack'
 
 gem 'jquery-rails'
+
+gem 'jquery-turbolinks'

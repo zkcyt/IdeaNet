@@ -24,12 +24,16 @@
               </div>
               <div class="search-button">
                  <%= f.submit 'この条件で検索する', class: "btn btn-sm standard-button" %>　<%= link_to '検索条件クリア', url_for, class: "btn btn-light btn-sm" %>
-               </div>
+              </div>
             </div>
+               <!--入れ子にしていいねランキング-->
+
+               <!--入れ子にしていいねランキング  ここまで-->
            <% end %>
            </div>
        </div>
-     </div> <!-- 検索機能ここまで -->
+     </div>
+     <!-- 検索機能ここまで -->
 
 <!-- 一覧表示 -->
 <h1>Idea 一覧</h1>
@@ -53,7 +57,6 @@
       <th>Summary</th>
       <th>Content</th>
       <th>User</th>
-      <th>Genre_id</th>
       <th>Genre</th>
       <th colspan="6"></th>
 
@@ -69,7 +72,6 @@
         <td><%= post.summary %></td>
         <td><%= post.content %><%= link_to 'もっと見る', post %></td>
         <td><%= post.user.nickname %>
-        <td><%= post.genre_id %>
         <td><%= post.genre.try(:name) %></td>
         <td><%#= link_to(post.genre.try(:name), "/@genres/#{@genre.id}", controller: "posts", action: "show", id: @genre.id) %></td>
         <!--
@@ -109,7 +111,13 @@
                       <td class="border-top-0"><%= i %>位　「<%= post.title %>」</td>
                     </tr>
                     <tr>
-                      <td class="border-top-0"> (<%= post.summary %>) </td>
+                      <td class="border-top-0"> -<%= post.genre.try(:name) %>- </td>
+                    </tr>
+                    <tr>
+                      <td class="border-top-0"> (要約：<%= post.summary %>) </td>
+                    </tr>
+                    <tr>
+                      <td class="border-top-0"> (内容：<%= post.content %>　<%= link_to 'もっと見る', post %>)- </td>
                     </tr>
                   </tbody>
                 </table>
