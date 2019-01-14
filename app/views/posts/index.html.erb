@@ -2,7 +2,7 @@
 <%#<div class="body-full">%>
   <div class="body-full">
     <br>
-    <h2>投稿一覧</h2>
+    <h2></h2>
 
     <!-- 検索機能 -->
     <div class="container-fluid">
@@ -17,7 +17,7 @@
               <div class="col-6 col-md-3">
                 <div class="form-group">
                   <%#= f.label :genre_id_eq, '分野' %>
-                  <%= f.label :genre_id, '分野' %>
+                  <%= f.label :genre_id, '分野　' %>
                   <%#= f.select :genre_id_eq, [["観光","観光"],["生活","生活"],["不便","不便"],["言語","言語"],["",""],["",""],["",""],["",""]], {include_blank: true}, {class: 'form-control'} %>
                   <%= f.select :genre_id_eq, Genre.all.map{|genre| [genre.name, genre.id]} %>
                 </div>
@@ -36,7 +36,7 @@
      <!-- 検索機能ここまで -->
 
 <!-- 一覧表示 -->
-<h1>Idea 一覧</h1>
+<h1>Idea 一覧 </h1>
 <div class="container-fluid index-body">
   <div class="row">
 
@@ -46,7 +46,7 @@
       <p>この検索条件での投稿はまだありません。</p>
     <% end %>
 <%#<table width="75%">%>
-<table class="table-responsive" width="75%">
+<table class="table-responsive table table-striped table-bordered">>
   <%#<table class="table table-bordered" width="65%">%>
 　<%#<table class="table table-condensed">%>
 
