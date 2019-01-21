@@ -60,3 +60,5 @@ gem 'ransack'
 gem 'jquery-rails'
 
 gem 'jquery-turbolinks'
+
+gem 'bootstrap'

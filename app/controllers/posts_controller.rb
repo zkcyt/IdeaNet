@@ -5,12 +5,12 @@ class PostsController < ApplicationController
   #GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    #@posts = Post.all
     @q = Post.ransack(params[:q])
-    @posts = @q.result.page(params[:page]).per(10).recent
+    @posts = @q.result.page(params[:page]).per(15).recent
     #@posts = Post.all
     #@posts = Post.where(id: params[:genre_id]).order(created_at: :desc)
-    @like_ranking = Post.where(id: Like.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
+    @like_ranking = Post.where(id: Like.group(:post_id).order('count(post_id) desc').limit(20).pluck(:post_id))
     @genres = Genre.all
 
   end

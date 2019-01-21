@@ -37,6 +37,9 @@
 
 <!-- 一覧表示 -->
 <h1>Idea 一覧 </h1>
+<!-- ページング機能 -->
+    <div><%= page_entries_info @posts %></div>
+
 <div class="container-fluid index-body">
   <div class="row">
 
@@ -73,22 +76,20 @@
         <td><%= post.content %><%= link_to 'もっと見る', post %></td>
         <td><%= post.user.nickname %>
         <td><%= post.genre.try(:name) %></td>
-        <td><%#= link_to(post.genre.try(:name), "/@genres/#{@genre.id}", controller: "posts", action: "show", id: @genre.id) %></td>
         <!--
-        <%# if post.genre.present? %>
-          <td><%#= post.genre.name %></td>
-        <%# end %>
+          <% if post.genre.present? %>
+            <td><%= post.genre.name %></td>
+          <% end %>
         -->
-
+        <td><%#= link_to(post.genre.try(:name), "/@genres/#{@genre.id}", controller: "posts", action: "show", id: @genre.id) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <!-- 一覧表示ここまで -->
-
 <br>
 <!-- ページング機能 -->
-       <%= paginate @posts %>
+    <div><%= paginate @posts %></div>
  <%#</main>%>
 <br>
 
@@ -99,19 +100,19 @@
 <!-- サイドバー -->
 <div id="side" class="col-sm-12 col-md-4">
     <!-- いいねが多い投稿一覧機能 -->
-      <div class="rank-box">
+      <div class="rank-box height="10px"">
         <span class="rank-box-title"><span class="fa fa-heart like-btn"></span>いいね！ランキング</span>
         <div class="not-under">
           <% @like_ranking.each.with_index(1) do |post, i| %>
             <%= link_to post do %>
               <div class ="rank">
-                <table class="table table-sm">
+                <table class="table table-sm height="300px""  >
                   <tbody>
                     <tr>
                       <td class="border-top-0"><%= i %>位　「<%= post.title %>」</td>
                     </tr>
                     <tr>
-                      <td class="border-top-0"> -<%= post.genre.try(:name) %>- </td>
+                      <td class="border-top-0"> -<%= post.genre.try(:name) %>-    <span class="fa fa-heart like-btn"><%= post.likes.count %></span>件</td>
                     </tr>
                     <tr>
                       <td class="border-top-0"> (要約：<%= post.summary %>) </td>
